@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1006605979692",
+    "project_id": "hotel-hunt-4e835",
+    "storage_bucket": "hotel-hunt-4e835.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006605979692:android:814dd97c62c08155548189",
+        "android_client_info": {
+          "package_name": "com.hotelhunt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1006605979692-1b7tphe4ifidpcnc2p0d7hdeag11noun.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hotelhunt",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1006605979692-go569u8cqbqhf60eubig332m6k1ntvd2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZUbWP3fDmxdeH6uQeOS5rHWOjyEuxU7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006605979692-go569u8cqbqhf60eubig332m6k1ntvd2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
