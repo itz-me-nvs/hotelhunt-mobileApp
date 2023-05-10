@@ -48,6 +48,7 @@ const UserDetails = () => {
         title="WELCOME ABOARD"
         subtitle="Complete your profile to join us"
         icon="welcome.png"
+        routerPath="Login"
       />
 
       <View style={styles.userDetailsContainer}>
@@ -140,7 +141,6 @@ const getStyles = (theme: ThemeType) =>
     userDetailsItemInput: {
       borderBottomColor: theme['secondary-25'],
       borderBottomWidth: 1,
-      //   height: 35,
       width: '100%',
       textAlign: 'left',
       padding: 10,

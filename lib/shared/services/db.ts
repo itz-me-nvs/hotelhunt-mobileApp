@@ -41,6 +41,8 @@ export type HotelListType = {
   rooms: RoomType[];
   reviews: ReviewType[];
   foods: FoodType[];
+
+  filter?: HotelFilterType;
 };
 
 export type HotelPropsType = {

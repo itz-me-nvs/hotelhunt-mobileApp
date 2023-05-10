@@ -24,3 +24,12 @@ export type AppContextActionType =
 export type UserStateType = {
   isLoggedIn: boolean;
 } & UserAccountType;
+
+// router paths list
+
+export type RouterPathList =
+  | 'OTPVerification'
+  | 'HomePage'
+  | 'AddHotel'
+  | 'UserDetails'
+  | 'Login';

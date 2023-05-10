@@ -6,7 +6,7 @@ import Typography from 'lib/components/UI/Typography';
 <Typography variant="subheading">Subheading</Typography>
 */
 
-import {Text} from 'react-native';
+import {Animated} from 'react-native';
 import styled from 'styled-components';
 import {
   ThemeType,
@@ -17,7 +17,7 @@ const Typography = ({children, ...rest}: TypographyComponentType) => {
   return <StyledText {...rest}>{children}</StyledText>;
 };
 
-const StyledText = styled(Text)`
+const StyledText = styled(Animated.Text)`
   font-family: ${({fontFamily}: TypographyComponentType) => {
     return `Poppins-${fontFamily}` || 'Poppins-Regular';
   }};

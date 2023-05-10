@@ -7,6 +7,7 @@ export const lightTheme: ThemeType = {
   'primary-75': 'rgba(12, 96, 243, 0.75)',
   'primary-50': 'rgba(12, 96, 243, 0.5)',
   'primary-25': 'rgba(12, 96, 243, 0.25)',
+  'primary-15': 'rgba(12, 96, 243, 0.15)',
 
   secondary: 'rgba(70, 95, 124, 1)',
   'secondary-75': 'rgba(70, 95, 124, 0.75)',
@@ -25,13 +26,16 @@ export const lightTheme: ThemeType = {
 
   black: '#000000',
   white: '#FFFFFF',
+  'white-75': 'rgba(255, 255, 255, 0.75)',
 
-  pageHeader: 'rgba(12, 96, 243, 0.05)',
+  pageHeader: 'rgba(12, 96, 243, 1)',
+  'pageHeader-50': 'rgba(12, 96, 243, 0.05)',
   fancyLightBlue: 'rgba(120, 185, 235, 1)',
   'fancyLightBlue-75': 'rgba(120, 185, 235, 0.75)',
   'fancyLightBlue-50': 'rgba(120, 185, 235, 0.5)',
   'fancyLightBlue-25': 'rgba(120, 185, 235, 0.25)',
   'fancyLightBlue-13': 'rgba(120, 185, 235, 0.13)',
+  'fancyActiveLightBlue-15': 'rgba(146, 183, 255, 0.15)',
 
   //rgba colors
   green: 'rgba(71, 79, 94, 0.75)',

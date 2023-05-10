@@ -5,6 +5,7 @@ import {
   TouchableOpacityProps,
   ViewStyle,
 } from 'react-native/types';
+import {RouterPathList} from './app.type';
 
 /* Basic component type */
 export type TypographyComponentType = {
@@ -43,6 +44,10 @@ export type PageHeaderComponentType = {
   subtitle?: string;
   icon?: string;
   fancy?: boolean;
+
+  routerPath?: RouterPathList;
+  ScrollBackgroundColor?: keyof ThemeType;
+  animatedValue?: any;
 };
 
 export type NoDataComponentType = {
@@ -58,6 +63,7 @@ export type ThemeType = {
   'primary-75': string;
   'primary-50': string;
   'primary-25': string;
+  'primary-15': string;
 
   secondary: string;
   'secondary-75': string;
@@ -76,6 +82,7 @@ export type ThemeType = {
 
   black: string;
   white: string;
+  'white-75': string;
 
   // rgba colors
   red: string;
@@ -84,9 +91,11 @@ export type ThemeType = {
 
   // custom fancy colors
   pageHeader: string;
+  'pageHeader-50': string;
   fancyLightBlue: string;
   'fancyLightBlue-75': string;
   'fancyLightBlue-50': string;
   'fancyLightBlue-25': string;
   'fancyLightBlue-13': string;
+  'fancyActiveLightBlue-15': string;
 };
