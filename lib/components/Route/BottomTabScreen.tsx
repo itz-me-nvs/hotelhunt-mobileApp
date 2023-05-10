@@ -1,4 +1,7 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  BottomTabBarProps,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useRef} from 'react';
 import {Animated, Text, TouchableOpacity, View} from 'react-native';
@@ -13,22 +16,18 @@ import HomePage from '../../screens/HomePage';
 import {ThemeType} from '../../shared/models/component.type';
 import Button from '../UI/Button';
 
-function CustomTabBar({
-  state,
-  descriptors,
-  navigation,
-}: {
-  state: any;
-  descriptors: any;
-  navigation: any;
-}) {
+function CustomTabBar({state, descriptors, navigation}: BottomTabBarProps) {
   const theme = useTheme() as ThemeType;
+
+  console.log(state.index, state.routes);
 
   return (
     <View
       style={{
         flexDirection: 'row',
         backgroundColor: '#fff',
+        // hide bottomtab if route name is admin
+        display: state.routes[state.index].name === 'Admin' ? 'none' : 'flex',
       }}>
       {state.routes.map((route: any, index: number) => {
         const {options} = descriptors[route.key];
@@ -311,6 +310,14 @@ export const AdminStackScreen = () => {
           headerShown: false,
         }}
       />
+
+      {/* <AdminStack.Screen
+        name="HomePage"
+        component={HomePage}
+        options={{
+          headerShown: false,
+        }}
+      /> */}
     </AdminStack.Navigator>
   );
 };
