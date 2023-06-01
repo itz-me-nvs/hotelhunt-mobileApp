@@ -17,8 +17,9 @@ const StyledButton = styled(TouchableOpacity)`
   background-color: ${({theme, color}: ButtonComponentType) => {
     return theme?.[color as keyof ThemeType];
   }};
-  padding: 8px;
-  border-radius: 8px;
+  padding-vertical: 8px;
+  padding-horizontal: 10px;
+  border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;

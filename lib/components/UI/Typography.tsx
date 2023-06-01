@@ -13,8 +13,12 @@ import {
   TypographyComponentType,
 } from '../../shared/models/component.type';
 
-const Typography = ({children, ...rest}: TypographyComponentType) => {
-  return <StyledText {...rest}>{children}</StyledText>;
+const Typography = ({children, color, ...rest}: TypographyComponentType) => {
+  return (
+    <StyledText color={color} {...rest}>
+      {children}
+    </StyledText>
+  );
 };
 
 const StyledText = styled(Animated.Text)`

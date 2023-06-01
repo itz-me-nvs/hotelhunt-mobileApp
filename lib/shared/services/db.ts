@@ -51,20 +51,23 @@ export type HotelPropsType = {
   lon: number;
 };
 
-export type HotelFilterType = 'all' | 'food' | 'room';
+// Food & Room Menu
+
+export type HotelFilterType = 'all' | 'foods' | 'rooms';
 
 // Rooms, Review, Notification, Food Types
 
 export type RoomType = {
   name: string;
   desc: string;
-  price: number;
+  price: string;
   tid: number;
   id?: string;
+  count?: number;
 };
 
 export type FoodType = {
-  count: number;
+  count?: number;
   desc: string;
   name: string;
   price: string;

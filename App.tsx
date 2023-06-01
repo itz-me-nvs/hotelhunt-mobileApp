@@ -6,7 +6,7 @@ import UserProvider from './lib/components/Hooks/UserContext';
 import BottomTabScreen, {
   AuthStackScreen,
 } from './lib/components/Route/BottomTabScreen';
-import {darkTheme, lightTheme} from './lib/shared/constants/theme';
+import {lightTheme} from './lib/shared/constants/theme';
 
 const App = () => {
   const [theme, setTheme] = useState(lightTheme);
@@ -19,7 +19,7 @@ const App = () => {
 
   useEffect(() => {
     // Set the initial theme based on the device's color scheme
-    setTheme(colorScheme === 'dark' ? darkTheme : lightTheme);
+    setTheme(colorScheme === 'dark' ? lightTheme : lightTheme);
   }, [colorScheme]);
 
   return (

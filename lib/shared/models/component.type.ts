@@ -56,6 +56,18 @@ export type NoDataComponentType = {
   icon?: string;
 };
 
+export type SnackBarComponentType = {
+  message: string;
+  type: StatusType;
+  duration?: number;
+  onClose?: () => void;
+  onAction?: () => void;
+  actionText?: string;
+  visible: boolean;
+};
+
+export type StatusType = 'success' | 'danger' | 'warning' | 'info';
+
 /* Theme constant type */
 
 export type ThemeType = {

@@ -18,4 +18,9 @@ export const FLEX = StyleSheet.create({
     justifyContent: 'flex-end',
     display: 'flex',
   },
+  between: {
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    display: 'flex',
+  },
 });

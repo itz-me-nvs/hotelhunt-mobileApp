@@ -9,10 +9,13 @@ import Svg, {Path} from 'react-native-svg';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useTheme} from 'styled-components';
 import AddHotel from '../../screens/Admin/AddHotel';
+import AddMenu from '../../screens/Admin/AddMenu';
+import AddRoom from '../../screens/Admin/AddRoom';
 import LoginPage from '../../screens/Auth/LoginPage';
 import OTPVerificationPage from '../../screens/Auth/OTPVerification';
 import UserDetails from '../../screens/Auth/UserDetails';
 import HomePage from '../../screens/HomePage';
+import HotelDetails from '../../screens/User/HotelDetails';
 import {ThemeType} from '../../shared/models/component.type';
 import Button from '../UI/Button';
 
@@ -294,8 +297,34 @@ export const HomeStackScreen = () => {
           headerShown: false,
         }}
       />
+
+      <HomeStack.Screen
+        name="HotelDetails"
+        component={HotelDetails}
+        options={{
+          headerShown: false,
+        }}
+      />
     </HomeStack.Navigator>
   );
+};
+
+const horizontalAnimation = {
+  gestureDirection: 'horizontal',
+  cardStyleInterpolator: ({current, layouts}: any) => {
+    return {
+      cardStyle: {
+        transform: [
+          {
+            opacity: current.progress.interpolate({
+              inputRange: [0, 1],
+              outputRange: [0, 1],
+            }),
+          },
+        ],
+      },
+    };
+  },
 };
 
 /* Admin Stack Screens */
@@ -311,13 +340,29 @@ export const AdminStackScreen = () => {
         }}
       />
 
-      {/* <AdminStack.Screen
-        name="HomePage"
+      <AdminStack.Screen
+        name="AddMenu"
+        component={AddMenu}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <AdminStack.Screen
+        name="AddRoom"
+        component={AddRoom}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <AdminStack.Screen
+        name="HomaPage"
         component={HomePage}
         options={{
           headerShown: false,
         }}
-      /> */}
+      />
     </AdminStack.Navigator>
   );
 };

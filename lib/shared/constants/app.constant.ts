@@ -12,4 +12,4 @@ export const GOOGLE_SEARCH_PLACE_URL =
 
 // Layout constnats
 export const HEADER_MAX_HEIGHT = 120;
-export const HEADER_MIN_HEIGHT = 80;
+export const HEADER_MIN_HEIGHT = 55;

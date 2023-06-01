@@ -1,5 +1,5 @@
 import BuildUrl from 'build-url';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {FlatList, Image, StyleSheet, View} from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import {useTheme} from 'styled-components';
@@ -14,9 +14,13 @@ import {
 } from '../shared/constants/app.constant';
 import {FLEX} from '../shared/constants/style.constant';
 import {ThemeType} from '../shared/models/component.type';
-import {HotelFilterType, HotelListType} from '../shared/services/db';
+import {
+  HotelFilterType,
+  HotelListType,
+  getHotelList,
+} from '../shared/services/db';
 
-const HomePage = () => {
+const HomePage = ({navigation, route}: {navigation: any; route: any}) => {
   const theme = useTheme() as ThemeType;
   const style = getStyles(theme);
 
@@ -40,17 +44,19 @@ const HomePage = () => {
   // hotel list
   const [hotels, Sethotels] = useState<HotelListType[]>([]);
 
-  // useEffect(() => {
-  //   // fetch hotels
-  //   getHotelList({
-  //     lat: Number(11.0444119),
-  //     lon: Number(76.0786784),
-  //     type: filter,
-  //   }).then(res => {
-  //     console.log('hotel list', res);
-  //     Sethotels(res.filter(item => item.id == 'uJCHCJBT4luIOFzwa7Bz'));
-  //   });
-  // }, [filter, currentLocation]);
+  useEffect(() => {
+    // fetch hotels
+    getHotelList({
+      lat: Number(11.0444119),
+      lon: Number(76.0786784),
+      type: filter,
+    }).then(res => {
+      console.log('hotel list', res);
+      Sethotels(res);
+    });
+  }, [filter, currentLocation]);
+
+  // res.filter(item => item.id == 'uJCHCJBT4luIOFzwa7Bz')
 
   // get current location
   // useEffect(() => {
@@ -128,6 +134,11 @@ const HomePage = () => {
     pathA: '689',
     pathB: '706',
   });
+
+  // view hotel other details
+  const ViewHotelDetails = (item: HotelListType) => {
+    navigation.navigate('HotelDetails', {hotel: item});
+  };
 
   return (
     <View style={style.homeContainer}>
@@ -230,7 +241,9 @@ const HomePage = () => {
               renderItem={({item}) => {
                 return (
                   <View style={style.hotelCard}>
-                    <Button style={style.hotelCardButton}>
+                    <Button
+                      style={style.hotelCardButton}
+                      onPress={() => ViewHotelDetails(item)}>
                       <Image
                         source={{uri: item.img}}
                         style={style.hotelImage}
@@ -269,7 +282,12 @@ const HomePage = () => {
                           </Typography>
                         </View>
 
-                        <Button color="fancyLightBlue-13">
+                        <Button
+                          color="fancyLightBlue-13"
+                          style={{
+                            paddingVertical: 5,
+                            paddingHorizontal: 10,
+                          }}>
                           <Typography
                             color="green"
                             fontFamily="Medium"

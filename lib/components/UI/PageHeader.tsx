@@ -44,12 +44,7 @@ const PageHeader = ({
     extrapolate: 'clamp',
   });
 
-  const backgroundColor = animatedValue?.interpolate({
-    inputRange: [0, HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT],
-    outputRange: [theme['pageHeader-50'], theme.white],
-    extrapolate: 'clamp',
-  });
-  const styles = getStyles(theme, backgroundColor);
+  const styles = getStyles(theme);
 
   return (
     <>
@@ -112,39 +107,80 @@ const PageHeader = ({
               height: height,
             },
           ]}>
-          <Animated.View style={styles.itemContainer}>
+          <Animated.View style={[styles.itemContainer]}>
             <AnimatedIcon
               name="arrow-back"
+              style={{
+                position: 'absolute',
+                top: -2,
+              }}
               size={25}
               color={theme.secondary}
               onPress={() => navigation.navigate(routerPath as never)}
             />
+
             <Typography
-              color={theme.secondary as keyof ThemeType}
+              style={{
+                marginTop: animatedValue?.interpolate({
+                  inputRange: [0, 100],
+                  outputRange: [24, 8],
+                  extrapolate: 'clamp',
+                }),
+                marginLeft: animatedValue?.interpolate({
+                  inputRange: [0, 100],
+                  outputRange: [0, 30],
+                  extrapolate: 'clamp',
+                }),
+              }}
+              color="secondary"
               fontFamily="Bold"
               fontSize={14}>
               {title}
             </Typography>
 
             <Typography
-              color={theme['secondary-75'] as keyof ThemeType}
+              style={{
+                marginLeft: animatedValue?.interpolate({
+                  inputRange: [0, 100],
+                  outputRange: [0, 30],
+                  extrapolate: 'clamp',
+                }),
+              }}
+              color="secondary-75"
               fontFamily="Regular"
               fontSize={10}>
               {subtitle}
             </Typography>
           </Animated.View>
 
-          <Image source={imageList[icon as never]} style={styles.headerIcon} />
+          <Animated.Image
+            source={imageList[icon as never]}
+            style={[
+              styles.headerIcon,
+              {
+                transform: [
+                  {
+                    scale: animatedValue?.interpolate({
+                      inputRange: [0, 50, 100],
+                      outputRange: [1, 0.8, 0.6],
+                      extrapolate: 'clamp',
+                    }),
+                  },
+                ],
+              },
+            ]}
+          />
         </Animated.View>
       )}
     </>
   );
 };
 
-const getStyles = (theme: ThemeType, ScrollBackgroundColor: string) =>
+const getStyles = (theme: ThemeType) =>
   StyleSheet.create({
     pageHeaderContainer: {
-      backgroundColor: ScrollBackgroundColor,
+      backgroundColor: theme.pageHeader,
+
       width: '100%',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -156,6 +192,9 @@ const getStyles = (theme: ThemeType, ScrollBackgroundColor: string) =>
       top: 0,
       left: 0,
       right: 0,
+
+      elevation: 2,
+      zIndex: 200,
     },
     itemContainer: {
       display: 'flex',
